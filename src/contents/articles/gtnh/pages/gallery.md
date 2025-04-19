@@ -5,7 +5,7 @@ slug: "gtnh/gallery"
 
 title: "GTNH SS置き場"
 desc: "GregTech: New Horizonsのスクリーンショット集。実況動画サムネイルの素材でした。"
-imgSrc: "/gallery/gtnh-ss/2025-01-12_Generators.png"
+imgSrc: "/src/contents/articles/gtnh/assets/generators.png"
 imgAlt: "Antimatter Generator from GTNH & Artificial Star from TST"
 
 article:
@@ -39,13 +39,13 @@ article:
 </details>
 
 ### 動画シリーズ (niconico)
-<iframe width="312" height="176" src="https://ext.nicovideo.jp/thumb_series/422742?userId=125257102" scrolling="no" style="border:solid 1px #CCC;" frameborder="0"><a href="https://www.nicovideo.jp/user/125257102/series/422742">【ニコニコ動画】GTNewHorizons (完走)</a></iframe>
+<iframe width="312" height="176" src="https://ext.nicovideo.jp/thumb_series/422742?userId=125257102" scrolling="no" style="border:solid 1px #CCC;" frameborder="0"><a href="https://www.nicovideo.jp/user/125257102/series/422742" loading="lazy">【ニコニコ動画】GTNewHorizons (完走)</a></iframe>
 
 ### 総集編・魔術 (YouTube)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_PYJgjkGTIA?si=PLDJtUU31nATHOrw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_PYJgjkGTIA?si=PLDJtUU31nATHOrw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
 
 ### 総集編・工業 (YouTube)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sFFFLCYHAd4?si=qhswvBpl2yfeWzB1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sFFFLCYHAd4?si=qhswvBpl2yfeWzB1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
 
 ---
 
