@@ -1,0 +1,18 @@
+---
+import LayoutBase from "src/layouts/LayoutBase.astro";
+import { Image } from "astro:assets";
+import imgMain from "src/assets/img/Stargate.png";
+import OpenGraphWebsite from "src/components/head/opengraph/OpenGraphWebsite.astro";
+
+const imgMainAlt = "Stargate from GTNewHorizons";
+---
+<LayoutBase title="">
+    <OpenGraphWebsite slot="head" />
+    <h1># Welcome</h1>
+    <Image src={imgMain} alt={imgMainAlt} loading="eager" />
+    <ul>
+        <li><a href="/articles/gtnh/gallery/">GTNH SS集</a></li>
+        <li><a href="/articles/clayium/1/">Balanced Clay | Clayium #1</a></li>
+    </ul>
+</LayoutBase>
+

@@ -19,7 +19,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/**/*.{jpeg,jpg
     <header>
       {title && <h1># {title}</h1>}
       {desc && <p>{desc}</p>}
-      {images[imgSrc] && imgAlt ? <Image src={images[imgSrc]()} alt={imgAlt} /> : <img src={imgSrc} />}
+      {images[imgSrc] && imgAlt ? <Image src={images[imgSrc]()} alt={imgAlt} loading="eager" /> : <img src={imgSrc} />}
     </header>
     <nav>
     </nav>
