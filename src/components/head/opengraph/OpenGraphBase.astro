@@ -3,11 +3,10 @@ import settings from "src/scripts/settings.ts";
 
 interface Props {
   title?: string,
-  category?: string,
   desc?: string,
   imgSrc?: string
 }
-const { title, category, desc, imgSrc } = Astro.props;
+const { title, desc, imgSrc } = Astro.props;
 ---
 
 {/* OGP REQUIRED FIELDS (except og:type) */}
@@ -19,8 +18,8 @@ const { title, category, desc, imgSrc } = Astro.props;
     : <meta property="og:title" content={title} />
   : <meta property="og:title" content={settings.site_name} />}
 */}
-{title ? <meta property="og:title" content={"${title} | ${settings.site_name}"} />
-  : <meta property="og:title" content={"${settings.site_name}"} />}
+{title ? <meta property="og:title" content={title + " | " + settings.site_name} />
+  : <meta property="og:title" content={settings.site_name} />}
 {imgSrc ? <meta property="og:image" content={new URL(imgSrc, Astro.url)} />
   : <meta property="og:image" content={new URL("/ogimage-default.webp", Astro.url)} />}
 <meta property="og:url" content={Astro.url.pathname} />
