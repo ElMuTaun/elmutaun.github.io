@@ -1,0 +1,28 @@
+---
+import OpenGraphBase from "./OpenGraphBase.astro";
+import type { ArticleMeta } from "src/scripts/types/ArticleMeta";
+import settings from "src/scripts/settings.ts";
+
+interface Props {
+  title?: string,
+  category?: string,
+  desc?: string,
+  imgSrc?: string
+  articleMeta?: ArticleMeta
+}
+const { title, desc, imgSrc, articleMeta } = Astro.props;
+---
+
+{/* OGP */}
+<OpenGraphBase {title} {desc} {imgSrc} />
+<meta property="og:type" content="article" />
+{articleMeta?.author && articleMeta.author.forEach((author) => <meta property="og:article:author" content={author} />)}
+{articleMeta?.published_time && <meta property="og:article:published_time" content={articleMeta.published_time} />}
+{articleMeta?.modified_time && <meta property="og:article:modified_time" content={articleMeta.modified_time} />}
+{articleMeta?.expiration_time && <meta property="og:article:expiration_time" content={articleMeta.expiration_time} />}
+{articleMeta?.ogp_section && <meta property="og:article:section" content={articleMeta.ogp_section} />}
+{articleMeta?.tag && articleMeta.tag.forEach((tag) => <meta property="og:article:tag" content={tag} />)}
+
+{/* Twitter */}
+<meta name="twitter:card" content="summary_large_image" />
+{settings.socials.twitter && <meta name="twitter:site" content={settings.socials.twitter} />}

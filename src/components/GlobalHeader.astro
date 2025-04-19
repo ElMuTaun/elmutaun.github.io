@@ -1,0 +1,44 @@
+---
+import settings from "src/scripts/settings";
+---
+<div class="global-header flex flex-nowrap content-center">
+  <span class="text-4xl font-bold">
+    <a href="/" class="pl-1 pr-3 no-underline inline-block">・<span class="hover:underline inline-block">{settings.site_name}</span></a>
+  </span>
+  <ul class="header-nav flex flex-nowrap items-end m-0">
+    <li><a href="/articles/">Posts</a></li>
+    <!-- <li><a href="/about/">About</a></li> -->
+    <li><a href="/links/">Links</a></li>
+    <li><a href="/articles/gtnh/gallery/">SAMPLE</a></li>
+  </ul>
+  <div class="grow shrink">
+    <!-- NYI: search bar -->
+  </div>
+  <div class="flex items-center mr-1">
+    <!-- NYI: tool bar -->
+    サイト工事中/面倒なので多分やらない
+  </div>
+</div>
+
+<style>
+.global-header {
+  border-collapse: separate;
+  border-bottom: 0.2rem solid var(--border-color);
+}
+
+.header-nav > li {
+  display: block;
+  list-style-type: none;
+  height: 100%;
+}
+.header-nav a {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  padding: 0 0.3em;
+  text-decoration: none;
+}
+.header-nav a:hover {
+  background-color: var(--sub-background-color);
+}
+</style>

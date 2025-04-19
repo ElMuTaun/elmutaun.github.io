@@ -1,0 +1,83 @@
+---
+import GlobalHeader from "src/components/GlobalHeader.astro";
+import SideTree from "src/components/SideTree.astro";
+import "src/styles/global.css";
+import settings from "src/scripts/settings";
+
+interface Props {
+  title: string,
+  desc?: string,
+  imgSrc?: string,
+  imgAlt?: string,
+  locale?: string
+}
+const { title, desc, imgSrc, imgAlt, locale } = Astro.props;
+---
+<html lang={locale ? locale : settings.locale }>
+  <head>
+    <meta charset="UTF-8" />
+    {title ? <title>{title}</title> : <title>{settings.site_name}</title>}
+    {desc ? <meta name="description" content={desc} /> : <meta name="description" content={settings.desc_general} />}
+    <meta name="author" content={settings.site_author} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <slot name="head" /> {/* Insert head content here */}
+  </head>
+  <body class="m-0">
+      <header>
+        <GlobalHeader />
+      </header>
+      <div>
+        <aside>
+          <nav>
+            <SideTree />
+          </nav>
+        </aside>
+        <main>
+          <div id="head"></div>
+          <slot /> {/* Insert main content here */}
+          hey
+          <div id="tail"></div>
+        </main>
+      </div>
+  </body>
+</html>
+
+<style>
+
+body {
+  min-height: 100vh;
+  min-width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  z-index: 100;
+  position: sticky;
+  width: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+body > div {
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+}
+
+
+body > div > aside {
+  min-width: 20%;
+  max-width: 20%;
+}
+body > div > aside > nav {
+  min-height: 100%;
+  display: flex;
+}
+
+
+main {
+  min-height: 100%;
+  overflow-wrap: anywhere;
+  padding: 0.5rem;
+}
+</style>

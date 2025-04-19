@@ -1,0 +1,33 @@
+---
+import settings from "src/scripts/settings.ts";
+
+interface Props {
+  title?: string,
+  category?: string,
+  desc?: string,
+  imgSrc?: string
+}
+const { title, category, desc, imgSrc } = Astro.props;
+---
+
+{/* OGP REQUIRED FIELDS (except og:type) */}
+
+{/*
+{title
+  ? category
+    ? <meta property="og:title" content={"${title} | ${category}"} />
+    : <meta property="og:title" content={title} />
+  : <meta property="og:title" content={settings.site_name} />}
+*/}
+{title ? <meta property="og:title" content={"${title} | ${settings.site_name}"} />
+  : <meta property="og:title" content={"${settings.site_name}"} />}
+{imgSrc ? <meta property="og:image" content={new URL(imgSrc, Astro.url)} />
+  : <meta property="og:image" content={new URL("/ogimage-default.webp", Astro.url)} />}
+<meta property="og:url" content={Astro.url.pathname} />
+
+{/* OGP OPTIONAL FIELDS */}
+
+{desc ? <meta property="og:description" content={desc} /> : <meta property="og:description" content={settings.desc_general} />}
+<meta property="og:determiner" content="" />
+<meta property="og:locale" content={settings.locale} />
+<meta property="og:site_name" content={settings.site_name} />

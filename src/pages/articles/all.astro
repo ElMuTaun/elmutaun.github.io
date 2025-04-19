@@ -1,0 +1,22 @@
+---
+import LayoutBase from "src/layouts/LayoutBase.astro";
+import OpenGraphWebsite from "src/components/head/opengraph/OpenGraphWebsite.astro";
+import { getCollection } from 'astro:content';
+import { checkMDDraftStatus } from "src/scripts/utils/markdown";
+
+const title = "All Posts";
+const allArticles = await getCollection("article", ({data}) => !checkMDDraftStatus(data.draft));
+---
+<LayoutBase {title}>
+  <OpenGraphWebsite slot="head" {title} />
+  <h1># {title}</h1>
+  <ul>
+    {allArticles.map(article =>
+      <li><a href={article.id}>{article.data.title}</a></li>)}
+  </ul>
+</LayoutBase>
+<style>
+li {
+  text-decoration: underline;
+}
+</style>

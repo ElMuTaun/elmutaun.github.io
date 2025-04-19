@@ -1,0 +1,28 @@
+---
+import LayoutMDBase from "./LayoutMDBase.astro";
+import OpenGraphArticle from "src/components/head/opengraph/OpenGraphArticle.astro";
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import type { Frontmatter } from "src/scripts/types/Frontmatter";
+
+interface Props {
+  frontmatter: Frontmatter | any
+}
+const { frontmatter } = Astro.props;
+const { title, desc, imgSrc, imgAlt, article: articleMeta } = frontmatter;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/**/*.{jpeg,jpg,png,gif,webp}");
+---
+<LayoutMDBase {frontmatter}>
+  <OpenGraphArticle slot="head" {title} {desc} {imgSrc} {articleMeta} />
+  <slot name="head" slot="head" />
+  <article>
+    <header>
+      {title && <h1># {title}</h1>}
+      {desc && <p>{desc}</p>}
+      {images[imgSrc] && imgAlt ? <Image src={images[imgSrc]()} alt={imgAlt} /> : <img src={imgSrc} />}
+    </header>
+    <nav>
+    </nav>
+    <slot />
+  </article>
+</LayoutMDBase>

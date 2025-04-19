@@ -1,0 +1,19 @@
+---
+import OpenGraphBase from "./OpenGraphBase.astro";
+import settings from "src/scripts/settings.ts";
+
+interface Props {
+  title?: string,
+  desc?: string,
+  imgSrc?: string
+}
+const { title, desc, imgSrc } = Astro.props;
+---
+
+{/* OGP */}
+<OpenGraphBase {title} {desc} {imgSrc} />
+<meta property="og:type" content="website" />
+
+{/* Twitter */}
+<meta name="twitter:card" content="summary" />
+{settings.socials.twitter && <meta name="twitter:site" content={settings.socials.twitter} />}

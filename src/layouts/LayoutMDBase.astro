@@ -1,0 +1,16 @@
+---
+import LayoutBase from "./LayoutBase.astro";
+import type { Frontmatter } from "src/scripts/types/Frontmatter";
+import settings from "src/scripts/settings";
+
+interface Props {
+  frontmatter: Frontmatter
+}
+const { frontmatter } = Astro.props;
+const title = frontmatter.title ?? settings.site_name;
+const { desc, imgSrc, imgAlt, locale } = frontmatter;
+---
+<LayoutBase {title} {desc} {imgSrc} {imgAlt} {locale}>
+  <slot name="head" slot="head" />
+  <slot />
+</LayoutBase>

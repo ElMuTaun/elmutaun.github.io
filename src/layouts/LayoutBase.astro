@@ -1,0 +1,42 @@
+---
+import GlobalHeader from "src/components/GlobalHeader.astro";
+import SideTree from "src/components/SideTree.astro";
+import "src/styles/global.css";
+import settings from "src/scripts/settings";
+
+interface Props {
+  title: string,
+  desc?: string,
+  imgSrc?: string,
+  imgAlt?: string,
+  locale?: string
+}
+const { title, desc, imgSrc, imgAlt, locale } = Astro.props;
+---
+<html lang={locale ? locale : settings.locale }>
+  <head>
+    <meta charset="UTF-8" />
+    {title ? <title>{title}</title> : <title>{settings.site_name}</title>}
+    {desc ? <meta name="description" content={desc} /> : <meta name="description" content={settings.desc_general} />}
+    <meta name="author" content={settings.site_author} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <slot name="head" /> {/* Insert head content here */}
+  </head>
+  <body class="min-h-dvh min-w-full flex flex-col">
+      <header class="top-0 sticky">
+        <GlobalHeader />
+      </header>
+      <div class="flex grow">
+        <aside class="hidden lg:inline-block min-w-1/6 max-w-1/6">
+          <nav class="w-full h-full">
+            <SideTree />
+          </nav>
+        </aside>
+        <main class="p-2 wrap-anywhere grow">
+          <div id="head"></div>
+          <slot /> {/* Insert main content here */}
+          <div id="tail"></div>
+        </main>
+      </div>
+  </body>
+</html>

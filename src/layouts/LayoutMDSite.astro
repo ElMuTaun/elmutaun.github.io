@@ -1,0 +1,19 @@
+---
+import LayoutMDBase from "./LayoutMDBase.astro";
+import OpenGraphWebsite from "src/components/head/opengraph/OpenGraphWebsite.astro";
+import settings from "src/scripts/settings";
+import type { Frontmatter } from "src/scripts/types/Frontmatter";
+
+interface Props {
+  frontmatter: Frontmatter
+}
+const { frontmatter } = Astro.props;
+const { title, desc, imgSrc } = frontmatter;
+---
+<LayoutMDBase {frontmatter}>
+  <OpenGraphWebsite slot="head" {title} {desc} {imgSrc} />
+  <slot name="head" slot="head" />
+  <article>
+    <slot />
+  </article>
+</LayoutMDBase>

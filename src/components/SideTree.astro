@@ -1,0 +1,20 @@
+---
+import SideTreeContent from "./SideTreeContent.svelte";
+import { getCollection } from 'astro:content';
+
+---
+<div class="side-tree">
+  <p>工事中☆コンテンツツリーを置こう</p>
+  <SideTreeContent />
+</div>
+<style>
+.side-tree {
+  box-sizing: border-box;
+  border-right: 0.15rem solid var(--border-color);
+  padding: 0.5rem;
+  height: 100%;
+  width: 100%;
+  overflow-x: clip;
+  overflow-y: auto;
+}
+</style>
