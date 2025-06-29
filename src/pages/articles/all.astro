@@ -12,7 +12,7 @@ const allArticles = await getCollection("article", ({data}) => !checkMDDraftStat
   <OpenGraphWebsite slot="head" {title} />
   <h1># {title}</h1>
   <ul>
-    {[...allArticles].reverse().map(article =>
+    {allArticles.map(article =>
       <li><a href={article.id}>{article.data.title}</a></li>)}
   </ul>
 </LayoutBase>

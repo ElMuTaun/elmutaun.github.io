@@ -18,7 +18,7 @@ article:
 
 ---
 
-## \#\# MOD LIST
+## \#\# MOD構成
 
 - /dank/null
 - A Little Extra Tiles
