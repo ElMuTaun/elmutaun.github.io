@@ -5,13 +5,14 @@ import { getCollection } from 'astro:content';
 import { checkMDDraftStatus } from "src/scripts/utils/markdown";
 
 const title = "All Posts";
+// Oldest to newest order
 const allArticles = await getCollection("article", ({data}) => !checkMDDraftStatus(data.draft));
 ---
 <LayoutBase {title}>
   <OpenGraphWebsite slot="head" {title} />
   <h1># {title}</h1>
   <ul>
-    {allArticles.map(article =>
+    {[...allArticles].reverse().map(article =>
       <li><a href={article.id}>{article.data.title}</a></li>)}
   </ul>
 </LayoutBase>
